@@ -1,0 +1,22 @@
+@use '/src/assets/styles/config';
+
+.footer {
+    border: solid 1px config.$color_black;
+    padding: 12px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: .75em;
+    &-menu {
+        display: flex;
+        justify-content: center;
+        > li {
+            padding-right: 12px;
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+    &-copyright {
+        padding-top: 15px;
+    }
+}

@@ -1,0 +1,73 @@
+@use '/src/assets/styles/config';
+@use '/src/assets/styles/breakpoints';
+
+.products {
+    margin: 0 -10px;
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &-item {
+        flex: 0 1 calc(25% - 20px);
+        padding: 10px;
+        @include breakpoints.mobile() {
+            flex: 0 1 calc(50% - 20px);
+        }
+        @include breakpoints.tablet() {
+            flex: 0 1 calc(33.3% - 20px);
+        }
+        @include breakpoints.below(490px) {
+            flex: 0 1 calc(100% - 20px);
+        }
+        > figure {
+            width: 100%;
+        }
+        > caption {
+            display: block;
+            text-align: left;
+            padding: 5px;
+        }
+        > button {
+            width: 100%;
+            padding: 5px;
+            cursor: pointer;
+            margin-top: 7px;
+        }
+        .description {
+            display: none;
+        }
+        &:hover {
+            .description {
+                font-size: .7em;
+                padding: 5px;
+                display: block;
+            }
+            box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+            -moz-box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+            -webkit-box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+            -o-box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+            -ms-box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+        }
+    }
+    &-name,
+    &-price {
+        display: block;
+    }
+    &-name {
+        font-size: 1em;
+        margin-bottom: 3px;
+    }
+    &-price {
+        font-size: .75em;
+    }
+    &-filter {
+        display: flex;
+        justify-content: space-between;
+        @include breakpoints.below(490px) {
+            flex-direction: column;
+            .mat-mdc-form-field-type-mat-native-select {
+                width: 50%;
+            }
+        }
+    }
+}

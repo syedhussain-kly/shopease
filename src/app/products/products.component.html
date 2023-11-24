@@ -1,0 +1,29 @@
+<form [formGroup]="filterForm" class="products-filter">
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <select matNativeControl formControlName="filterCategory">
+            <option value="All">All</option>
+            <option [value]="category.label" *ngFor="let category of categoryList">{{category.label}}</option>
+        </select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Search" formControlName="searchText">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</form>
+
+<section class="products">
+    <ul class="products-list">
+        <li class="products-item" *ngFor="let product of productList | filter: 'name' : searchText">
+            <figure>
+                <img src="../../{{product.image}}" class="img-responsive" />
+            </figure>
+            <caption>
+                <span class="products-name">{{product.name}}</span>
+                <span class="products-price">{{product.price}}</span>
+            </caption>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do labore et dolore magna aliqua.</p>
+            <button type="button">Add to Cart</button>
+        </li>
+    </ul>
+</section>
